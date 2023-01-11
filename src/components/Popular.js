@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../styles/Navigation.css";
 import axios from "axios";
 
 const Popular = () => {
@@ -24,15 +25,28 @@ const Popular = () => {
   return (
     <div>
       <div className="mt-4 ml-44 text-3xl">Recommended Movies</div>
-      <div className="bg-blue-300">
-        {movies.map((res, index) => {
-          return (
-            <div key={index}>
-              <img src={res.poster_path} />
-              <div>{res.title}</div>
-            </div>
-          );
-        })}
+      <div>
+        <div className="container-movies bg-red-300 movie-img flex justify-center">
+          {movies.map((res, index) => {
+            return (
+              <div key={index} className="m-4">
+                <img
+                  className="img-size  rounded-lg"
+                  src={`https://image.tmdb.org/t/p/original${res.poster_path}`}
+                />
+                <div className=" mt-4  container-placement">
+                  <div className="flex ">
+                    <div className="bg-black text-white w-12 h-12 container-radius flex justify-center items-center mb-4">
+                      {res.vote_average}
+                    </div>
+                  </div>
+                  <div className="font-semibold w-24">{res.title}</div>
+                  <div>{res.release_date}</div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

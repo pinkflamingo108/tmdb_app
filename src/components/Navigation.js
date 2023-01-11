@@ -2,8 +2,14 @@ import React from "react";
 
 const Navigation = () => {
   return (
-    <div className="bg-color text-white h-16 flex items-center ">
-      <div className="ml-14 text-3xl text-cyan-400 font-semibold">TMDB</div>
+    <div className="bg-color text-white h-16 flex items-center">
+      <div>
+        <img
+          className="w-40 h-20 ml-4"
+          alt="tmdb logo"
+          src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
+        />
+      </div>
     </div>
   );
 };
