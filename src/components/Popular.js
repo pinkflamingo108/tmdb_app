@@ -31,7 +31,7 @@ const Popular = () => {
             return (
               <div key={index} className="m-4">
                 <img
-                  className="img-size  rounded-lg"
+                  className="img-size rounded-lg"
                   src={`https://image.tmdb.org/t/p/original${res.poster_path}`}
                 />
                 <div className=" mt-4  container-placement">
