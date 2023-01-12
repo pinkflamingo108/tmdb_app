@@ -3,7 +3,6 @@ import "../styles/Navigation.css";
 import axios from "axios";
 
 const Popular = () => {
-  let infoContainer = [];
   const [movies, setMovies] = useState([]);
 
   function fetchData() {
@@ -24,28 +23,33 @@ const Popular = () => {
 
   return (
     <div>
-      <div className="mt-4 ml-44 text-3xl">Recommended Movies</div>
-      <div>
-        <div className="container-movies bg-red-300 movie-img flex justify-center">
-          {movies.map((res, index) => {
-            return (
-              <div key={index} className="m-4">
-                <img
-                  className="img-size rounded-lg"
-                  src={`https://image.tmdb.org/t/p/original${res.poster_path}`}
-                />
-                <div className=" mt-4  container-placement">
-                  <div className="flex ">
-                    <div className="bg-black text-white w-12 h-12 container-radius flex justify-center items-center mb-4">
-                      {res.vote_average}
+      <div className="mt-4 ml-44 text-3xl mb-4">Recommended Movies</div>
+      <div className="ml-36 mr-36 ">
+        <div>
+          <div className=" container-movies  movie-img ">
+            <div className="flex justify-center">
+              {movies.map((res, index) => {
+                return (
+                  <div key={index} className="m-4 ">
+                    <img
+                      alt={`${res.title} movie img`}
+                      className="img-size rounded-lg cursor-pointer"
+                      src={`https://image.tmdb.org/t/p/original${res.poster_path}`}
+                    />
+                    <div className=" mt-4  container-placement">
+                      <div className="flex ">
+                        <div className="bg-black text-white w-12 h-12 container-radius flex justify-center items-center mb-4">
+                          {res.vote_average}
+                        </div>
+                      </div>
+                      <div className="font-semibold w-24">{res.title}</div>
+                      <div>{res.release_date}</div>
                     </div>
                   </div>
-                  <div className="font-semibold w-24">{res.title}</div>
-                  <div>{res.release_date}</div>
-                </div>
-              </div>
-            );
-          })}
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </div>

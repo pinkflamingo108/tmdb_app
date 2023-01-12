@@ -1,11 +1,13 @@
 @import url("../styles.scss");
 
+* {
+  box-sizing: border-box;
+}
+
 .movie-img {
   display: flex;
   overflow-x: scroll;
-
   flex-direction: row;
-  /* flex-wrap: wrap; */
 }
 
 .container-radius {
@@ -25,4 +27,17 @@
 
 .img-size {
   min-width: 12rem;
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dbdbdb;
+  border-radius: 20px;
 }
