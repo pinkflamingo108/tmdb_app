@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Navigation.css";
 import axios from "axios";
 
@@ -11,8 +12,9 @@ const Popular = () => {
         `https://api.themoviedb.org/3/movie/2/recommendations?api_key=d15db2786c7e9576fe22f4a84bea426e`
       )
       .then((response) => {
-        console.log(response.data.results);
+        // console.log(response.data.results);
         setMovies(response.data.results);
+        console.log(movies);
       })
       .catch((err) => console.log(err));
   }
@@ -30,22 +32,24 @@ const Popular = () => {
             <div className="flex justify-center">
               {movies.map((res, index) => {
                 return (
-                  <div key={index} className="m-4 ">
-                    <img
-                      alt={`${res.title} movie img`}
-                      className="img-size rounded-lg cursor-pointer"
-                      src={`https://image.tmdb.org/t/p/original${res.poster_path}`}
-                    />
-                    <div className=" mt-4  container-placement">
-                      <div className="flex ">
-                        <div className="bg-black text-white w-12 h-12 container-radius flex justify-center items-center mb-4">
-                          {res.vote_average}
+                  <Link key={index} to={`movies/${res.id}`}>
+                    <div className="m-4 ">
+                      <img
+                        alt={`${res.title} movie img`}
+                        className="img-size rounded-lg cursor-pointer"
+                        src={`https://image.tmdb.org/t/p/original${res.poster_path}`}
+                      />
+                      <div className=" mt-4  container-placement">
+                        <div className="flex ">
+                          <div className="bg-black text-white w-12 h-12 container-radius flex justify-center items-center mb-4">
+                            {res.vote_average}
+                          </div>
                         </div>
+                        <div className="font-semibold w-24">{res.title}</div>
+                        <div>{res.release_date}</div>
                       </div>
-                      <div className="font-semibold w-24">{res.title}</div>
-                      <div>{res.release_date}</div>
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
