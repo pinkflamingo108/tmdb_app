@@ -12,6 +12,16 @@
   background-position: center;
 }
 
+.search-button {
+  position: relative;
+  right: 4rem;
+  background: linear-gradient(
+    to right,
+    rgba(30, 213, 169, 1) 0%,
+    rgba(1, 180, 228, 1) 100%
+  );
+}
+
 @media (max-width: 1200px) {
   .bg-img {
     margin: 0rem;

@@ -51,6 +51,15 @@
   color: #eaebe7;
 }
 
-.test {
-  background-color: blue;
+.cover-background {
+  height: 75.4vh;
+  width: 100%;
+  background: black;
+  position: absolute;
+  opacity: 0.5;
+}
+
+.container-height {
+  height: 75vh;
+  width: 100%;
 }
